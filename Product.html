@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tees</title>
+  <link rel="stylesheet"type="text/css"href="css.css">
+ <script>
+  var cartItems = [];
+
+  function addToCart(productName, quantityId, sizeId) {
+    var price = 950;
+    var quantity = parseInt(document.getElementById(quantityId).value);
+    var size = document.getElementById(sizeId).value;
+
+    var item = {
+      productName: productName,
+      size: size,
+      quantity: quantity,
+      price: price * quantity
+    };
+
+    cartItems.push(item);
+   
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    
+    alert("Tee added to cart!");
+
+    updateCart();
+  }
+
+  function updateCart() {
+    var cartContainer = document.getElementById("cart-container");
+    cartContainer.innerHTML = "";
+
+    for (var i = 0; i < cartItems.length; i++) {
+      var item = cartItems[i];
+
+      var itemElement = document.createElement("div");
+      itemElement.className = "cart-item";
+      itemElement.innerHTML = `<span class="cart-item-indicator">Product:</span> ${item.productName}<br>
+                                <span class="cart-item-indicator">Size:</span> ${item.size}<br>
+                                <span class="cart-item-indicator">Quantity:</span> ${item.quantity}<br>
+                                <span class="cart-item-indicator">Price:</span> ₱${item.price}`;
+
+      cartContainer.appendChild(itemElement);
+    }
+  }
+</script>
+</head>
+
+<meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+	
+<body>
+<header>
+      <div class="navbar">
+      <div class="logo">
+      </div>
+	    
+      <nav>
+	  <a href="index.html">Index</a>
+        <a href="Home.html">Home</a>
+        <a href="Product.html">Product</a>
+        <a href="About.html">About Us</a>
+        <a href="Contact.html">Contact Us</a>
+		<a href="Cart.html">Checkout</a>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+      </div>
+    </div>
+  </header>
+
+<section class="Tees">
+<h2>Our Vibin Tees</h2>
+  <div class="product-container">
+  
+    <div class="product1true">
+      <img src="pics/dbtk1.jpg" alt="DBTK Brown">
+      <h4>Don't Blame The Kids Brown Oversized</h4>
+      <p>Price: ₱950.00</p>
+      <input type="number" id="product1-quantity" min="1" value="1" placeholder="Quantity">
+      <select id="product1-size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+      <button onclick="addToCart('Don\'t Blame The Kids Brown Oversized','product1-quantity', 'product1-size')">Add to Cart</button>
+    </div>
+
+    <div class="product2true">
+      <img src="pics/dbtk2.jpg" alt="DBTK Cyber">
+      <h4>Don't Blame The Kids Cyber Oversized</h4>
+      <p>Price: ₱950.00</p>
+      <input type="number" id="product2-quantity" min="1" value="1" placeholder="Quantity">
+      <select id="product2-size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+     </select>
+      <button onclick="addToCart('Don\'t Blame The Kids Cyber Oversized','product2-quantity', 'product2-size')">Add to Cart</button>
+    </div>
+
+    <div class="product3true">
+      <img src="pics/dbtk3.jpg" alt="DBTK Play">
+      <h4>Don't Blame The Kids Playin' By The Rules</h4>
+      <p>Price: ₱950.00</p>
+      <input type="number" id="product3-quantity" min="1" value="1" placeholder="Quantity">
+      <select id="product3-size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+      <button onclick="addToCart('Don\'t Blame The Kids Playin By The Rules','product3-quantity', 'product3-size')">Add to Cart</button>
+    </div>
+  
+  
+  <div class="product4true">
+      <img src="pics/dbtk4.jpg" alt="DBTK Green">
+      <h4>Don't Blame The Kids Green Oversized</h4>
+      <p>Price: ₱950.00</p>
+      <input type="number" id="product4-quantity" min="1" value="1" placeholder="Quantity">
+      <select id="product4-size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+      <button onclick="addToCart('Don\'t Blame The Kids Green Oversized','product4-quantity', 'product4-size')">Add to Cart</button>
+    </div>
+  
+  
+  <div class="product5true">
+      <img src="pics/dbtk5.jpg" alt="DBTK Dream">
+      <h4>Don't Blame The Kids Dream Chasers</h4>
+      <p>Price: ₱950.00</p>
+      <input type="number" id="product5-quantity" min="1" value="1" placeholder="Quantity">
+      <select id="product5-size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+      <button onclick="addToCart('Don\'t Blame The Kids Dream Chasers','product5-quantity', 'product5-size')">Add to Cart</button>
+    </div>
+  
+</div>
+
+  
+  <footer>
+  <p>&copy; 2024 Vibin' Tees. All rights reserved.</p>
+</footer>
+</body>
+</html>

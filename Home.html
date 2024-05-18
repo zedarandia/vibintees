@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet"type="text/css"href="css.css">
+  
+  
+</head>
+
+<meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+
+<body>
+  <header>
+      <div class="navbar">
+      <div class="logo">
+        
+		
+      </div>
+	    
+      <nav>
+	    <a href="index.html">Index</a>
+        <a href="Home.html">Home</a>
+        <a href="Product.html">Product</a>
+        <a href="About.html">About Us</a>
+        <a href="Contact.html">Contact Us</a>
+		<a href="Cart.html">Checkout</a>
+		
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+      </div>
+    </div>
+  </header>
+
+
+ <main>
+ <section id="Featured">
+    <h1>Featured Tees</h1>
+	<div class="product1home">
+      <img src="pics/dbtk1.jpg" alt="DBTK Brown">
+      <h4>Don't Blame The Kids Brown Oversized</h4>
+    </div>
+
+    <div class="product2home">
+      <img src="pics/dbtk2.jpg" alt="DBTK Cyber">
+      <h4>Don't Blame The Kids Cyber Oversized</h4>
+    </div>
+
+    <div class="product3home">
+      <img src="pics/dbtk3.jpg" alt="DBTK Play">
+      <h4>Don't Blame The Kids Playin' By The Rules</h4>
+    </div>
+	
+	<div class="product4home">
+      <img src="pics/dbtk4.jpg" alt="DBTK Green">
+      <h4>Don't Blame The Kids Green Oversized</h4>
+    </div>
+	
+	<div class="music">
+	<button onclick="playAudio()">Play Audio</button>
+    </div>
+	
+	<div class="center">
+  <div class="photo-animation"></div>
+</div>
+	
+    <div class="content">
+    <h2>About Vibin' Tees</h2>
+    <p>Renowned the online retailers Vibin' Tees focuses on providing a wide selection of higher quality graphic tees. Vibin' Tees makes sure that every shirt is made with the greatest care and attention to detail, with a strong emphasis on both comfort and style.  Superior materials are used in the construction of each shirt to ensure outstanding durability and a smooth, opulent feel against the skin.  Vibin' Tees provides a large assortment of graphic shirts that suit a range of tastes and preferences, from statement pieces that showcase your distinct personality to casual everyday wear. You can boldly display your uniqueness and create a fashion statement that fits with your own style with Vibin' Tees.</p>
+	
+	<img src="pics/dbtk2home.jpg" alt="Image Description">
+
+    <h1>Our Best Selling Tees.</h1>
+    <a href="Product.html" class="button">Explore Our Best Shirts.</a>
+
+
+    
+
+    <aside>
+      <h2>Follow Us on Social Media</h2>
+      <div class="socialmediahome">
+        <a href="https://www.facebook.com/vibintees" target="_blank" rel="noopener noreferrer">
+          <img src="pics/facebooklogo.jpg" width="50" height="50" alt="Facebook">
+        </a>
+        <a href="https://www.twitter.com/vibintees" target="_blank" rel="noopener noreferrer">
+          <img src="pics/twitterlogo.jpg" width="50" height="50" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/vibintees" target="_blank" rel="noopener noreferrer">
+          <img src="pics/instagramlogo.jpg" width="50" height="50" alt="Instagram">
+        </a>
+      </div>
+      
+
+
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+
+<div class="centeraudio">
+  <audio id="myAudio" controls>
+    <source src="mp3/tvgirl.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
+
+<script>
+  function playAudio() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+  }
+</script>
+
+<footer>
+  <p>&copy; 2024 Vibin' Tees. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+

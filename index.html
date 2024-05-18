@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index</title>
+  <link rel="stylesheet" type="text/css" href="css.css">  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="indexbg">
+  </div>
+
+  <main>
+  
+  
+    <div class="content">
+      <h2>Vibe with Vibin' Tees</h2>
+      <h1>Our Best Selling Tees.</h1>
+      <a href="product.html" class="button">Explore Our Best Shirts</a>
+	  
+	  <div class="buttons">
+        <a href="Home.html" class="button">Home</a>
+        <a href="Product.html" class="button">Products</a>
+        <a href="About.html" class="button">About</a>
+        <a href="Contact.html" class="button">Contact</a>
+      </div>
+
+      <section class="section">
+        <aside class="aside">
+          <h2>Vibe with Us</h2>
+          <p>Sign up for our newsletter to receive exclusive discounts and early access to new collections.</p>
+        </aside>
+
+        <article class="article">
+          <h2>New Collection</h2>
+          <p>Introducing our latest collection of streetwear-inspired tees. Made from premium quality materials, these tees combine style and comfort for the ultimate street style look. Explore the new collection and upgrade your wardrobe today!</p>
+        </article>
+      </section>
+	  
+	  
+
+      <div class="subscription">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay up to date with the latest updates and offers by subscribing to our newsletter. Enter your email address below:</p>
+        <form onsubmit="subscribeNewsletter(event)">
+          <input type="email" id="email-input" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+	  
+	  <h1 style="font-size: 36px;">Featured Tees</h1>
+       <img src="pics/indexpic.jpg" alt="index" style="width: 100%; max-width: 1000px;">
+       <h4 style="font-size: 24px;">Don't Blame The Kids Brown Oversized</h4>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Vibin' Tees. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function subscribeNewsletter(event) {
+      event.preventDefault();
+      var emailInput = document.getElementById("email-input");
+      var email = emailInput.value;
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
+        return;
+      }
+      alert("Thank you for subscribing to our newsletter!");
+      emailInput.value = "";
+    }
+
+    function validateEmail(email) {
+      var emailRegex = /\S+@\S+\.\S+/;
+      return emailRegex.test(email);
+    }
+  </script>
+</body>
+</html>

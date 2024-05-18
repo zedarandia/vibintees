@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+ <link rel="stylesheet"type="text/css"href="css.css">
+</head>
+<meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+<body>
+  <header>
+      <div class="navbar">
+      <div class="logo">
+      </div>
+	    
+      <nav>
+	  <a href="index.html">Index</a>
+        <a href="Home.html">Home</a>
+        <a href="Product.html">Product</a>
+        <a href="About.html">About Us</a>
+        <a href="Contact.html">Contact Us</a>
+		<a href="Cart.html">Checkout</a>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Checkout</h2>
+    <div id="cart-container">
+      </div>
+
+    <div id="subtotal-container">
+      <h2>Subtotal</h2>
+      <p id="subtotal-amount">₱0.00</p>
+      <button id="confirm-button" onclick="confirmOrder()">Confirm Order</button>
+      <button id="clear-button" onclick="clearCart()">Clear Cart</button>
+    </div>
+  </section>
+
+  <footer>
+  <p>&copy; 2024 Vibin' Tees. All rights reserved.</p>
+  </footer>
+
+  <script>
+  var cartItems = [];
+
+  var storedCartItems = localStorage.getItem('cartItems');
+  if (storedCartItems) {
+    cartItems = JSON.parse(storedCartItems);
+  }
+
+  updateCart();
+  updateSubtotal();
+  checkCartItems();
+
+  function addToCart(productName, quantityId, sizeId) {
+    var price = 950;
+    var quantity = parseInt(document.getElementById(quantityId).value);
+    var size = document.getElementById(sizeId).value;
+
+    var item = {
+      productName: productName,
+      size: size,
+      quantity: quantity,
+      price: price * quantity
+    };
+
+    cartItems.push(item);
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    updateCart();
+    updateSubtotal();
+    checkCartItems();
+  }
+
+  function updateCart() {
+    var cartContainer = document.getElementById("cart-container");
+    cartContainer.innerHTML = "";
+
+    for (var i = 0; i < cartItems.length; i++) {
+      var item = cartItems[i];
+
+      var itemElement = document.createElement("div");
+      itemElement.className = "cart-item";
+      itemElement.innerHTML = `<span class="cart-item-indicator">Product:</span> ${item.productName}<br>
+                                <span class="cart-item-indicator">Size:</span> ${item.size}<br>
+                                <span class="cart-item-indicator">Quantity:</span> ${item.quantity}<br>
+                                <span class="cart-item-indicator">Price:</span> ₱${item.price}`;
+
+      cartContainer.appendChild(itemElement);
+    }
+  }
+
+  function updateSubtotal() {
+    var subtotal = 0;
+    for (var i = 0; i < cartItems.length; i++) {
+      subtotal += cartItems[i].price;
+    }
+
+    var subtotalAmount = document.getElementById("subtotal-amount");
+    subtotalAmount.textContent = "₱" + subtotal.toFixed(2);
+  }
+
+  function enableCheckoutButton() {
+    var confirmButton = document.getElementById("confirm-button");
+    confirmButton.disabled = false;
+  }
+
+  function confirmOrder() {
+    var confirmation = confirm("Do you want to confirm your order?");
+
+    if (confirmation) {
+      alert("Your order has been confirmed!");
+      localStorage.removeItem("cartItems");
+      window.location.href = "success.html";
+    } else {
+      alert("Your order has been canceled.");
+    }
+  }
+
+  function clearCart() {
+    localStorage.removeItem("cartItems");
+    cartItems = []; // Clear the cartItems array
+    updateCart();
+    updateSubtotal();
+    checkCartItems();
+  }
+
+  function disableCheckoutButton() {
+    var confirmButton = document.getElementById("confirm-button");
+    confirmButton.disabled = true;
+  }
+
+  function checkCartItems() {
+    if (cartItems.length > 0) {
+      enableCheckoutButton();
+    } else {
+      disableCheckoutButton();
+    }
+  }
+</script>
+</body>
+</html>
